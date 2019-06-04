@@ -68,7 +68,22 @@ variable "k8s_version" {
 }
 
 variable "tidb_version" {
-  description = "tidb cluster version"
+  description = "tidb server version"
+  default = "v3.0.0-rc.1"
+}
+
+variable "tikv_version" {
+  description = "tikv server version"
+  default = "v3.0.0-rc.1"
+}
+
+variable "pd_version" {
+  description = "pd server version"
+  default = "v3.0.0-rc.1"
+}
+
+variable "binlog_version" {
+  description = "tidb binlog version"
   default = "v3.0.0-rc.1"
 }
 

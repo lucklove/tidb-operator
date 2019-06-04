@@ -42,7 +42,7 @@ discovery:
 
 pd:
   replicas: ${pd_replicas}
-  image: "pingcap/pd:${cluster_version}"
+  image: "pingcap/pd:${pd_version}"
   logLevel: info
   # storageClassName is a StorageClass provides a way for administrators to describe the "classes" of storage they offer.
   # different classes might map to quality-of-service levels, or to backup policies,
@@ -85,7 +85,7 @@ pd:
 
 tikv:
   replicas: ${tikv_replicas}
-  image: "pingcap/tikv:${cluster_version}"
+  image: "pingcap/tikv:${tikv_version}"
   logLevel: info
   # storageClassName is a StorageClass provides a way for administrators to describe the "classes" of storage they offer.
   # different classes might map to quality-of-service levels, or to backup policies,
@@ -148,7 +148,7 @@ tidb:
   # initSql is the SQL statements executed after the TiDB cluster is bootstrapped.
   # initSql: |-
   #   create database app;
-  image: "pingcap/tidb:${cluster_version}"
+  image: "pingcap/tidb:${tidb_version}"
   # Image pull policy.
   imagePullPolicy: IfNotPresent
   logLevel: info
@@ -295,7 +295,7 @@ binlog:
   pump:
     create: false
     replicas: 1
-    image: "pingcap/tidb-binlog:${cluster_version}"
+    image: "pingcap/tidb-binlog:${binlog_version}"
     imagePullPolicy: IfNotPresent
     logLevel: info
     # storageClassName is a StorageClass provides a way for administrators to describe the "classes" of storage they offer.
@@ -313,7 +313,7 @@ binlog:
 
   drainer:
     create: false
-    image: "pingcap/tidb-binlog:${cluster_version}"
+    image: "pingcap/tidb-binlog:${binlog_version}"
     imagePullPolicy: IfNotPresent
     logLevel: info
     # storageClassName is a StorageClass provides a way for administrators to describe the "classes" of storage they offer.
@@ -357,7 +357,7 @@ binlog:
 
 scheduledBackup:
   create: false
-  binlogImage: "pingcap/tidb-binlog:${cluster_version}"
+  binlogImage: "pingcap/tidb-binlog:${binlog_version}"
   binlogImagePullPolicy: IfNotPresent
   # https://github.com/tennix/tidb-cloud-backup
   mydumperImage: pingcap/tidb-cloud-backup:latest

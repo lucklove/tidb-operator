@@ -14,7 +14,10 @@ data "aws_ami" "amazon-linux-2" {
 data "template_file" "tidb_cluster_values" {
   template = "${file("${path.module}/templates/tidb-cluster-values.yaml.tpl")}"
   vars  {
-    cluster_version = "${var.tidb_version}"
+    tidb_version = "${var.tidb_version}"
+    tikv_version = "${var.tikv_version}"
+    pd_version = "${var.pd_version}"
+    binlog_version = "${var.binlog_version}"
     pd_replicas = "${var.pd_count}"
     tikv_replicas = "${var.tikv_count}"
     tidb_replicas = "${var.tidb_count}"

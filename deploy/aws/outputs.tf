@@ -9,8 +9,18 @@ output "eks_version" {
 }
 
 output "tidb_version" {
-  description = "tidb cluster version"
+  description = "tidb server version"
   value = "${var.tidb_version}"
+}
+
+output "tikv_version" {
+  description = "tikv server version"
+  value = "${var.tikv_version}"
+}
+
+output "pd_version" {
+  description = "pd server version"
+  value = "${var.pd_version}"
 }
 
 output "eks_endpoint" {
